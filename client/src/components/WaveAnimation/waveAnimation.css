@@ -51,10 +51,7 @@
   background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png');
 }
 .waveAnimation .waveTop {
-  animation: move-wave 3s;
-  -webkit-animation: move-wave 3s;
-  -webkit-animation-delay: 1s;
-  animation-delay: 1s;
+  animation: move-wave 15s linear infinite;
 }
 .waveMiddle {
   background-size: 50% 120px;

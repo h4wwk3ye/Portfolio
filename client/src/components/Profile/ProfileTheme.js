@@ -6,6 +6,12 @@ const useStyles = makeStyles(theme => ({
     marginTop: '100vh',
     textTransform: 'none',
   },
+  programmingImage: {
+    maxHeight: '70vh',
+    maxWidth: '50vw',
+    width: 'auto',
+    height: 'auto',
+  },
 }));
 
 export default useStyles;

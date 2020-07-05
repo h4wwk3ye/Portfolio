@@ -12,6 +12,11 @@ const useStyles = makeStyles(theme => ({
   text: {
     display: 'inline-block',
     textAlign: 'center',
+    fontSize: '1em',
+    lineHeight: '2em',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '0.7em',
+    },
   },
 }));
 

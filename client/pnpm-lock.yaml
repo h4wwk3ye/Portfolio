@@ -6,10 +6,12 @@ dependencies:
   '@testing-library/user-event': 7.2.1
   axios: 0.19.2
   react: 16.13.1
+  react-anchor-link-smooth-scroll: 1.0.12
   react-dom: 16.13.1_react@16.13.1
   react-redux: 7.2.0_49f644e2f7de4182503f8b93abece808
   react-router-dom: 5.2.0_react@16.13.1
   react-scripts: 3.4.1
+  react-scroll: 1.7.16_react-dom@16.13.1+react@16.13.1
   react-typist: 2.0.5_react-dom@16.13.1+react@16.13.1
   redux: 4.0.5
   redux-thunk: 2.3.0
@@ -7211,6 +7213,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==
+  /lodash.throttle/4.1.1:
+    dev: false
+    resolution:
+      integrity: sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
   /lodash.uniq/4.5.0:
     dev: false
     resolution:
@@ -9368,6 +9374,10 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-4Oz8DUIwdvoa5qMJelxipzi/iJIi40O5cGV1wNYp5hvZP8ZN0T+jiNkL0QepXs+EsQ9XJ8ipEDoiH70ySUJP3Q==
+  /react-anchor-link-smooth-scroll/1.0.12:
+    dev: false
+    resolution:
+      integrity: sha512-aaY+9X0yh8YnC0jBfoTKpsiCLdO/Y6pCltww+VB+NnTBPDOvnIdnp1AlazajsDitc1j+cVSQ+yNtaVeTIMQbxw==
   /react-app-polyfill/1.0.6:
     dependencies:
       core-js: 3.6.5
@@ -9555,6 +9565,18 @@ packages:
         optional: true
     resolution:
       integrity: sha512-JpTdi/0Sfd31mZA6Ukx+lq5j1JoKItX7qqEK4OiACjVQletM1P38g49d9/D0yTxp9FrSF+xpJFStkGgKEIRjlQ==
+  /react-scroll/1.7.16_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      lodash.throttle: 4.1.1
+      prop-types: 15.7.2
+      react: 16.13.1
+      react-dom: 16.13.1_react@16.13.1
+    dev: false
+    peerDependencies:
+      react: ^15.5.4 || ^16.0.0
+      react-dom: ^15.5.4 || ^16.0.0
+    resolution:
+      integrity: sha512-f4M5AdL+3cw3MJ7c/T0hPMY2iHCeQLDXV13lRanAFQ6JIt9xyAdHCpTH9mLUQt9SQh4pRarD+Qc7KhU6qMx3Yg==
   /react-transition-group/4.4.1_react-dom@16.13.1+react@16.13.1:
     dependencies:
       '@babel/runtime': 7.10.4
@@ -11914,10 +11936,12 @@ specifiers:
   '@testing-library/user-event': ^7.2.1
   axios: ^0.19.2
   react: ^16.13.1
+  react-anchor-link-smooth-scroll: ^1.0.12
   react-dom: ^16.13.1
   react-redux: ^7.2.0
   react-router-dom: ^5.2.0
   react-scripts: 3.4.1
+  react-scroll: ^1.7.16
   react-typist: ^2.0.5
   redux: ^4.0.5
   redux-devtools-extension: ^2.13.8

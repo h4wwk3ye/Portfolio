@@ -3,6 +3,9 @@ declare namespace Express {
     user: {
       id: string;
     };
+    file: {
+      location: string;
+    };
   }
   export interface Response {
     user: {

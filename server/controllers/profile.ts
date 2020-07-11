@@ -4,6 +4,7 @@ import User from '../models/User';
 import auth from '../utils/auth';
 import { check, validationResult } from 'express-validator';
 import { IProfile } from '../models/Profile';
+import { uploadFile, deleteFile } from '../upload';
 
 const profileRouter = express.Router();
 
@@ -39,6 +40,7 @@ profileRouter.post(
   '/',
   [
     auth,
+    uploadFile,
     check('smallDescription', 'Give 1 line description about yourself')
       .not()
       .isEmpty(),
@@ -51,9 +53,18 @@ profileRouter.post(
     }
 
     let body: IProfile = request.body as IProfile;
+    body = JSON.parse(JSON.stringify(body)) as IProfile;
     body = { ...body, user: request.user.id };
+    console.log(body);
+
+    if (request.file) body['image'] = request.file.location;
 
     let profile = await Profile.findOne({ user: request.user.id });
+
+    if (request.file && profile && profile.get('image')) {
+      // delete previous image if new image is in the request
+      await deleteFile(profile.get('image'));
+    }
 
     // TODO
     // !Add all the remaining fields as required and update them in the model too

@@ -4,17 +4,16 @@ import './index.css';
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
+import { RecoilRoot } from 'recoil';
 import Theme from './Theme';
-import store from './store';
-import { Provider } from 'react-redux';
 
 ReactDOM.render(
-  <Provider store={store}>
+  <RecoilRoot>
     <Router>
       <ThemeProvider theme={Theme}>
         <App />
       </ThemeProvider>
     </Router>
-  </Provider>,
+  </RecoilRoot>,
   document.getElementById('root')
 );

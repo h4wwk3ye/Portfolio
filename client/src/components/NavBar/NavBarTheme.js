@@ -4,12 +4,15 @@ const useStyles = makeStyles(theme => ({
   toolbarMargin: {
     ...theme.mixins.toolbar,
   },
+  appBar: {},
   name: {
     marginLeft: '1em',
-    whiteSpace: 'nowrap',
     [theme.breakpoints.down('sm')]: {
       fontSize: '2em',
     },
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-40%)',
   },
   tabContainer: {
     marginLeft: 'auto',
@@ -21,7 +24,11 @@ const useStyles = makeStyles(theme => ({
     opacity: 0.5,
     '&:hover': {
       opacity: 1,
+      transform: 'scale(1.3)',
     },
+  },
+  tabSelected: {
+    transform: 'scale(1.3)',
   },
   icon: {
     verticalAlign: 'text-bottom',
@@ -34,13 +41,14 @@ const useStyles = makeStyles(theme => ({
   },
   drawerIconContainer: {
     marginLeft: 'auto',
+    padding: 0,
   },
   drawerIcon: {
     height: 35,
     width: 35,
   },
   drawerList: {
-    width: '70%',
+    width: '65%',
   },
   closeButton: {
     display: 'flex',

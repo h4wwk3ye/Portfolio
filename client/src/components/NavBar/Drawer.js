@@ -9,6 +9,7 @@ import {
   Grid,
 } from '@material-ui/core';
 import { Link } from 'react-scroll';
+import { v4 as uuid } from 'uuid'; // for generating random keys
 import useStyles from './NavBarTheme';
 import routeOptions from './routeOptions';
 
@@ -20,9 +21,13 @@ export default function ({ value, handleChange, handleSetActive }) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
+  const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
+
   return (
     <React.Fragment>
       <SwipeableDrawer
+        disableBackdropTransition={!iOS}
+        disableDiscovery={iOS}
         anchor='top'
         open={open}
         onClose={() => setOpen(false)}
@@ -35,10 +40,9 @@ export default function ({ value, handleChange, handleSetActive }) {
           <Grid container>
             <Grid container direction='column' className={classes.drawerList}>
               {routeOptions.map((route, index) => (
-                <Grid item>
+                <Grid item key={uuid()}>
                   <ListItem
                     button
-                    key={ImageBitmapRenderingContext}
                     selected={value === index}
                     component={Link}
                     to={route}
@@ -48,9 +52,10 @@ export default function ({ value, handleChange, handleSetActive }) {
                     spy={true}
                     onSetActive={handleSetActive}
                     onClick={e => {
-                      handleChange(e, index);
                       setOpen(false);
+                      handleChange(e, index);
                     }}
+                    ignoreCancelEvents={true}
                     classes={{
                       root: classes.drawerTab,
                       selected: classes.drawerTabSelected,

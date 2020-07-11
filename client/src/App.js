@@ -1,10 +1,10 @@
 import React from 'react';
-import Profile from './components/Profile/Profile';
+import User from './components/User/User';
 
 export default function App() {
   return (
     <React.Fragment>
-      <Profile />
+      <User />
     </React.Fragment>
   );
 }

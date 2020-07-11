@@ -10,11 +10,6 @@ interface Education {
   };
 }
 
-interface Skill {
-  name: string;
-  value: number;
-}
-
 interface Project {
   name: string;
   description: string;
@@ -33,14 +28,22 @@ export interface IProfile extends Document {
   user: IUser['id'];
   smallDescription: string;
   about: string;
+  image: string;
+  resume: string;
+  loc: {
+    // Cant name it location. Some typescript error
+    city: string;
+    country: string;
+  };
   connect: {
     facebook: string;
     instagram: string;
     linkedin: string;
     github: string;
     twitter: string;
+    steam: string;
   };
-  skills: Array<Skill>;
+  skills: Array<string>;
   education: Array<Education>;
   projects: Array<Project>;
   experiences: Array<Experience>;
@@ -59,23 +62,24 @@ const ProfileSchema: Schema = new Schema({
     type: String,
     required: true,
   },
+  image: String,
+  resume: String,
+  loc: {
+    city: String,
+    country: String,
+  },
   connect: {
     facebook: String,
     instagram: String,
     linkedin: String,
     github: String,
     twitter: String,
+    steam: String,
   },
   skills: [
     {
-      name: {
-        type: String,
-        required: true,
-      },
-      value: {
-        type: Number,
-        default: 100,
-      },
+      type: String,
+      required: true,
     },
   ],
   education: [
@@ -108,9 +112,7 @@ const ProfileSchema: Schema = new Schema({
         type: String,
         required: true,
       },
-      gitLink: {
-        type: String,
-      },
+      gitLink: String,
     },
   ],
   experiences: [
@@ -127,9 +129,7 @@ const ProfileSchema: Schema = new Schema({
         type: Date,
         required: true,
       },
-      timeTo: {
-        type: Date,
-      },
+      timeTo: Date,
       currentlyWorking: {
         type: Boolean,
         default: false,

@@ -48,22 +48,22 @@
 }
 .waveTop {
   background-size: 50% 100px;
-  background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png');
+  background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png');
 }
 .waveAnimation .waveTop {
-  animation: move-wave 15s linear infinite;
+  animation: move_wave 10s linear infinite;
 }
 .waveMiddle {
   background-size: 50% 120px;
   background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png');
 }
 .waveAnimation .waveMiddle {
-  animation: move_wave 10s linear infinite;
+  animation: move_wave 15s linear infinite;
 }
 .waveBottom {
   background-size: 50% 100px;
   background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png');
 }
 .waveAnimation .waveBottom {
-  animation: move_wave 15s linear infinite;
+  animation: move_wave 20s linear infinite;
 }

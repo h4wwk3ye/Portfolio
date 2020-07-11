@@ -1,3 +1,3 @@
-const routeOptions = ['home', 'about', 'projects', 'experience', 'contact'];
+const routeOptions = ['home', 'about', 'profile', 'projects', 'contact'];
 
 export default routeOptions;

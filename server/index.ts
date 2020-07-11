@@ -1,5 +1,6 @@
 import express from 'express';
 require('express-async-errors');
+import cors from 'cors';
 import {
   requestLogger,
   unknownEndpoint,
@@ -18,6 +19,7 @@ void connectDB();
 const PORT = 3001;
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger); //logs every request to the console

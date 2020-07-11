@@ -1,5 +1,5 @@
 import React from 'react';
-import useStyles from './ProfileTheme';
+import useStyles from './UserTheme';
 import { Element } from 'react-scroll';
 
 import Name from '../Name/Name';

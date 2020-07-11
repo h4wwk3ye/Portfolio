@@ -1,6 +1,7 @@
 import React from 'react';
 import { Tabs, Tab } from '@material-ui/core';
 import { Link } from 'react-scroll';
+import { v4 as uuid } from 'uuid'; // for generating random keys
 import useStyles from './NavBarTheme';
 import routeOptions from './routeOptions';
 
@@ -17,9 +18,13 @@ export default function ({ value, handleChange, handleSetActive }) {
       value={value}
       onChange={handleChange}
     >
-      {routeOptions.map((route, index) => (
+      {routeOptions.map(route => (
         <Tab
-          className={classes.tab}
+          key={uuid()}
+          classes={{
+            root: classes.tab,
+            selected: classes.tabSelected,
+          }}
           label={
             <div>
               <img
@@ -37,6 +42,7 @@ export default function ({ value, handleChange, handleSetActive }) {
           offset={-100}
           spy={true}
           onSetActive={handleSetActive}
+          ignoreCancelEvents={true}
         />
       ))}
     </Tabs>

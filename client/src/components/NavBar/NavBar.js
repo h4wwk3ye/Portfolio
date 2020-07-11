@@ -7,8 +7,10 @@ import {
   useMediaQuery,
   useTheme,
 } from '@material-ui/core';
+import { Events, scrollSpy } from 'react-scroll';
 import useStyles from './NavBarTheme';
-import { useSelector } from 'react-redux';
+import { useRecoilValue } from 'recoil';
+import { profileState } from '../../atoms';
 import Tabs from './Tabs';
 import Drawer from './Drawer';
 
@@ -26,7 +28,7 @@ function ElevationScroll(props) {
 
 export default function NavBar() {
   const classes = useStyles();
-  const profile = useSelector(state => state.profile);
+  const profile = useRecoilValue(profileState);
   const theme = useTheme();
   const removeTabs = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -36,27 +38,58 @@ export default function NavBar() {
     setValue(newValue);
   };
 
+  React.useEffect(() => {
+    Events.scrollEvent.register('begin', function (to, element) {
+      // console.log(to, arguments);
+    });
+
+    Events.scrollEvent.register('end', function (to, element) {
+      // console.log(to, arguments);
+      if (to === 'home') {
+        setValue(0);
+      } else if (to === 'about') {
+        setValue(1);
+      } else if (to === 'profile') {
+        setValue(2);
+      } else if (to === 'projects') {
+        setValue(3);
+      } else if (to === 'contact') {
+        setValue(4);
+      }
+    });
+
+    scrollSpy.update();
+
+    return () => {
+      Events.scrollEvent.remove('begin');
+      Events.scrollEvent.remove('end');
+    };
+  }, []);
+
   // This is determined from the active class of the tab by using Link of react-scroll
   const handleSetActive = to => {
     if (to === 'home') {
       setValue(0);
     } else if (to === 'about') {
       setValue(1);
-    } else if (to === 'projects') {
+    } else if (to === 'profile') {
       setValue(2);
-    } else if (to === 'experience') {
+    } else if (to === 'projects') {
       setValue(3);
     } else if (to === 'contact') {
       setValue(4);
+    } else {
+      setValue(0);
     }
+    // console.log(to, 'mid');
   };
 
   return (
     <React.Fragment>
       <ElevationScroll>
-        <AppBar position='sticky'>
+        <AppBar position='sticky' className={classes.appBar}>
           <Toolbar>
-            <Typography variant='h4' className={classes.name}>
+            <Typography variant='h4' className={classes.name} noWrap>
               {profile.user.name}
             </Typography>
             {!removeTabs ? (

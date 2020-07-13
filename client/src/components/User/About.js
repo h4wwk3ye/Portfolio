@@ -56,11 +56,12 @@ export default function About() {
 
         <Grid item xs={12} className={classes.emptyGrid}></Grid>
 
-        {/* About Me */}
+        {/* <AboutMe visible={visible.aboutMe} />
+        <CodingImage visible={visible.codingImage} /> */}
+
         <VisibilitySensor
           onChange={isVisible => {
             if (!visible.aboutMe)
-              // this condition so we dont show the animation again
               setVisible({ ...visible, aboutMe: isVisible });
           }}
           partialVisibility
@@ -69,11 +70,9 @@ export default function About() {
           <AboutMe visible={visible.aboutMe} />
         </VisibilitySensor>
 
-        {/* Image */}
         <VisibilitySensor
           onChange={isVisible => {
             if (!visible.codingImage)
-              // this condition so we dont show the animation again
               setVisible({ ...visible, codingImage: isVisible });
           }}
           partialVisibility

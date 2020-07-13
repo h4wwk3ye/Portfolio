@@ -8,6 +8,8 @@ const grey = '#F9F9F9';
 const blue = '#007CFE'; // from the coding image
 const darkGrey = '#2D2D2D'; // stackoverflow dark page
 
+const defaultTextFieldColor = 'rgba(0, 0, 0, 0.23)';
+
 const breakpoints = createBreakpoints({});
 const palette = createPallete({});
 
@@ -21,6 +23,7 @@ const Theme = createMuiTheme({
       grey,
       blue,
       darkGrey,
+      defaultTextFieldColor,
     },
   },
   typography: {
@@ -75,6 +78,36 @@ const Theme = createMuiTheme({
       backgroundColor: blue,
     },
     // ****
+  },
+  overrides: {
+    MuiOutlinedInput: {
+      root: {
+        position: 'relative',
+        '& $notchedOutline': {
+          borderColor: defaultTextFieldColor, //default color
+        },
+        '&:hover:not($disabled):not($focused):not($error) $notchedOutline': {
+          borderColor: blue,
+          '@media (hover: none)': {
+            borderColor: defaultTextFieldColor,
+          },
+        },
+        '&$focused $notchedOutline': {
+          borderColor: blue,
+          borderWidth: 1,
+        },
+      },
+    },
+    MuiFormLabel: {
+      root: {
+        '&$error': {
+          color: 'red',
+        },
+        '&$focused': {
+          color: blue,
+        },
+      },
+    },
   },
 });
 

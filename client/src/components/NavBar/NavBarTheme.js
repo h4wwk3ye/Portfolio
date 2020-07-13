@@ -13,6 +13,7 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     top: '50%',
     transform: 'translateY(-40%)',
+    cursor: 'pointer',
   },
   tabContainer: {
     marginLeft: 'auto',

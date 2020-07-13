@@ -7,7 +7,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@material-ui/core';
-import { Events, scrollSpy } from 'react-scroll';
+import { Events, scrollSpy, animateScroll } from 'react-scroll';
 import useStyles from './NavBarTheme';
 import { useRecoilValue } from 'recoil';
 import { profileState } from '../../atoms';
@@ -78,10 +78,14 @@ export default function NavBar() {
       setValue(3);
     } else if (to === 'contact') {
       setValue(4);
-    } else {
-      setValue(0);
     }
-    // console.log(to, 'mid');
+  };
+
+  const scrollTop = () => {
+    animateScroll.scrollToTop({
+      duration: 500,
+      smooth: 'easeInQuad',
+    });
   };
 
   return (
@@ -89,7 +93,12 @@ export default function NavBar() {
       <ElevationScroll>
         <AppBar position='sticky' className={classes.appBar}>
           <Toolbar>
-            <Typography variant='h4' className={classes.name} noWrap>
+            <Typography
+              variant='h4'
+              className={classes.name}
+              noWrap
+              onClick={scrollTop}
+            >
               {profile.user.name}
             </Typography>
             {!removeTabs ? (

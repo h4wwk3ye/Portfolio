@@ -4,15 +4,14 @@ import { Element } from 'react-scroll';
 import { Grid, Paper, useMediaQuery, useTheme } from '@material-ui/core';
 import { Link } from 'react-scroll';
 import ListProjects from '../ListProjects/ListProjects';
-import { useRecoilValue } from 'recoil';
-import { profileState } from '../../atoms';
-import { v4 as uuid } from 'uuid'; // for generating random keys
+import VisibilitySensor from 'react-visibility-sensor';
 
 export default function Projects() {
   const classes = useStyles();
-  const profile = useRecoilValue(profileState);
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
+
+  const [visible, setVisible] = React.useState(false);
 
   return (
     <Element name='projects' className={classes.sectionContainer}>
@@ -57,9 +56,17 @@ export default function Projects() {
           spacing={5}
           className={classes.containerGrid}
         >
-          {profile.projects.map(project => (
-            <ListProjects project={project} key={uuid()} />
-          ))}
+          <VisibilitySensor
+            onChange={isVisible => {
+              if (!visible) {
+                setVisible(isVisible);
+              }
+            }}
+            partialVisibility
+            active={!visible}
+          >
+            <ListProjects visible={visible} />
+          </VisibilitySensor>
         </Grid>
       </Grid>
     </Element>

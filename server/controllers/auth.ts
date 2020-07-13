@@ -23,14 +23,14 @@ authRouter.get(
 
 /**
  * @route         POST /api/auth
- * @description   Authenticate user and get token
+ * @description   Authenticate user and get token (Login)
  * @access        PUBLIC
  */
 authRouter.post(
   '/',
   [
     check('email', 'Email is invalid').isEmail(),
-    check('password', 'Please enter a password').exists(),
+    check('password', 'Please enter a password').not().isEmpty(),
   ],
   async (request: Request, response: Response): Promise<Response> => {
     const errors = validationResult(request);
@@ -48,26 +48,31 @@ authRouter.post(
     // Check if user exists
     const user = await User.findOne({ email: email });
     if (!user) {
-      return response
-        .status(400)
-        .json({ errors: [{ msg: 'Invalid email or password' }] });
+      return response.status(400).json({
+        errors: [
+          { msg: 'Invalid email or password', param: 'email' },
+          { msg: 'Invalid email or password', param: 'password' },
+          // both of these so as to show bottom text on both fields
+        ],
+      });
     }
 
     // Matching password
     const match = await bcrypt.compare(password, user.password);
     if (!match) {
-      return response
-        .status(400)
-        .json({ errors: [{ msg: 'Invalid email or password' }] });
+      return response.status(400).json({
+        errors: [
+          { msg: 'Invalid email or password', param: 'email' },
+          { msg: 'Invalid email or password', param: 'password' },
+          // both of these so as to show bottom text on both fields
+        ],
+      });
     }
 
     // creating jwt tokem
     const token = jwt.sign(
       { user: { id: user.id as string } },
-      config.get('secret'),
-      {
-        expiresIn: 50000,
-      }
+      config.get('secret')
     );
 
     return response.json({ token });

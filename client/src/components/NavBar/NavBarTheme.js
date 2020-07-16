@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 25,
     opacity: '0.5 !important',
     '&:hover': {
-      opacity: 1,
+      opacity: '1 !important',
       transform: 'scale(1.3)',
     },
     textTransform: 'none !important',

@@ -32,6 +32,7 @@ const useStyles = makeStyles(theme => ({
   },
   tabSelected: {
     transform: 'scale(1.3)',
+    opacity: '1 !important',
   },
   icon: {
     verticalAlign: 'text-bottom',

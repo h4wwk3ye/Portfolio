@@ -117,11 +117,7 @@ export default function Register() {
 
   // Redirecting incase of authenticated
   if (auth.isAuthenticated) {
-<<<<<<< HEAD
     return <Redirect to='/edit' />;
-=======
-    return <Redirect to='/user' />;
->>>>>>> 57670d9a8d0aedab8e5f7bbc2a349df8c4357d5e
   }
 
   return (
@@ -282,19 +278,11 @@ export default function Register() {
 
           {/* Already have an account */}
           <Grid container>
-<<<<<<< HEAD
             <Grid item xs={false} md={2}></Grid>
             <Grid
               item
               xs={12}
               md={8}
-=======
-            <Grid item xs={false} md={3}></Grid>
-            <Grid
-              item
-              xs={12}
-              md={6}
->>>>>>> 57670d9a8d0aedab8e5f7bbc2a349df8c4357d5e
               className={classes.signupButtonContainer}
               component={Link}
               to='/login'
@@ -303,11 +291,7 @@ export default function Register() {
                 Already have an account? Sign in
               </Grid>
             </Grid>
-<<<<<<< HEAD
             <Grid item xs={false} md={2}></Grid>
-=======
-            <Grid item xs={false} md={3}></Grid>
->>>>>>> 57670d9a8d0aedab8e5f7bbc2a349df8c4357d5e
           </Grid>
         </Paper>
       </Grid>

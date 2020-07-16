@@ -53,29 +53,29 @@ export default function Skills({ visible }) {
             {profile.skills.map(skill => (
               <Grid
                 item
-                container
-                direction='column'
                 xs={6}
                 className={classes.singleSkillContainer}
                 key={uuid()}
               >
-                <Grid item xs={12} className={classes.skillIconContainer}>
-                  {setOfSkills.has(skill.toLowerCase()) ? (
-                    <img
-                      src={`/images/skills/${skill.toLowerCase()}.svg`}
-                      alt={skill}
-                      className={classes.skillIcon}
-                    />
-                  ) : (
-                    <img
-                      src={`/images/skills/defaultSkill.svg`}
-                      alt={skill}
-                      className={classes.skillIcon}
-                    />
-                  )}
-                </Grid>
-                <Grid item xs={12} className={classes.skillName}>
-                  {skill}
+                <Grid container direction='column'>
+                  <Grid item xs={12} className={classes.skillIconContainer}>
+                    {setOfSkills.has(skill.toLowerCase()) ? (
+                      <img
+                        src={`/images/skills/${skill.toLowerCase()}.svg`}
+                        alt={skill}
+                        className={classes.skillIcon}
+                      />
+                    ) : (
+                      <img
+                        src={`/images/skills/defaultSkill.svg`}
+                        alt={skill}
+                        className={classes.skillIcon}
+                      />
+                    )}
+                  </Grid>
+                  <Grid item xs={12} className={classes.skillName}>
+                    {skill}
+                  </Grid>
                 </Grid>
               </Grid>
             ))}

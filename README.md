@@ -1,5 +1,7 @@
 # Portfolio Builder
 
+![screenshot](https://github.com/h4wwk3ye/Portfolio/blob/master/client/public/images/pages-min.png?raw=true)
+
 Portfolio Builder is MERN stack project where a user can create their account and then create or update their profile. They can also share the public link of their profile with others.
 
 The backend is written with NodeJS completely in typescript with strict type checking.

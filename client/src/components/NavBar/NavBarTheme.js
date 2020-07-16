@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     width: 35,
   },
   drawerList: {
-    width: '65%',
+    width: '65% !important',
   },
   closeButton: {
     display: 'flex',

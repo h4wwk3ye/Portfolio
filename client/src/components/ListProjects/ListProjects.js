@@ -20,7 +20,11 @@ export default function ListProjects({ visible }) {
   const classes = ListingProjectTheme();
   const profile = useRecoilValue(profileState);
 
+<<<<<<< HEAD
   return profile.projects.length ? (
+=======
+  return (
+>>>>>>> 57670d9a8d0aedab8e5f7bbc2a349df8c4357d5e
     <React.Fragment>
       {profile.projects.map((project, i) => (
         <Grid item md={4} xs={12} key={i}>
@@ -58,11 +62,15 @@ export default function ListProjects({ visible }) {
                   className={classes.buttonContainer}
                   // Link part
                   component={Link}
+<<<<<<< HEAD
                   href={
                     project.gitLink && project.gitLink !== ''
                       ? `${project.gitLink}`
                       : null
                   }
+=======
+                  href={project.gitLink ? `${project.gitLink}` : null}
+>>>>>>> 57670d9a8d0aedab8e5f7bbc2a349df8c4357d5e
                   target='_blank'
                   rel='noopener noreferrer'
                 >
@@ -97,5 +105,9 @@ export default function ListProjects({ visible }) {
         </Grid>
       ))}
     </React.Fragment>
+<<<<<<< HEAD
   ) : null;
+=======
+  );
+>>>>>>> 57670d9a8d0aedab8e5f7bbc2a349df8c4357d5e
 }

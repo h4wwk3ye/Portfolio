@@ -10,6 +10,7 @@ dependencies:
   '@types/react-router-dom': 5.1.5
   axios: 0.19.2
   moment: 2.27.0
+  prop-types: 15.7.2
   react: 16.13.1
   react-anchor-link-smooth-scroll: 1.0.12
   react-dom: 16.13.1_react@16.13.1
@@ -1553,6 +1554,7 @@ packages:
         optional: true
     resolution:
       integrity: sha512-xPlkK+z/6y/24ka4gVJgwPfoCF4RCh8dXb1BNE7MtF9bXEBLN/lBxNTK8VAa0qm3V2oinA6xtUIdcRh0aeRtVw==
+<<<<<<< HEAD
   /@material-ui/pickers/3.2.10_64fe165cdb3bb1449f67ef4ad817869b:
     dependencies:
       '@babel/runtime': 7.10.5
@@ -1572,6 +1574,8 @@ packages:
       react-dom: ^16.8.4
     resolution:
       integrity: sha512-B8G6Obn5S3RCl7hwahkQj9sKUapwXWFjiaz/Bsw1fhYFdNMnDUolRiWQSoKPb1/oKe37Dtfszoywi1Ynbo3y8w==
+=======
+>>>>>>> 57670d9a8d0aedab8e5f7bbc2a349df8c4357d5e
   /@material-ui/styles/4.10.0_react-dom@16.13.1+react@16.13.1:
     dependencies:
       '@babel/runtime': 7.10.4
@@ -12056,13 +12060,17 @@ specifiers:
   '@material-ui/core': ^4.11.0
   '@material-ui/icons': ^4.9.1
   '@material-ui/lab': ^4.0.0-alpha.56
+<<<<<<< HEAD
   '@material-ui/pickers': ^3.2.10
+=======
+>>>>>>> 57670d9a8d0aedab8e5f7bbc2a349df8c4357d5e
   '@testing-library/jest-dom': ^4.2.4
   '@testing-library/react': ^9.5.0
   '@testing-library/user-event': ^7.2.1
   '@types/react-router-dom': ^5.1.5
   axios: ^0.19.2
   moment: ^2.27.0
+  prop-types: ^15.7.2
   react: ^16.13.1
   react-anchor-link-smooth-scroll: ^1.0.12
   react-dom: ^16.13.1

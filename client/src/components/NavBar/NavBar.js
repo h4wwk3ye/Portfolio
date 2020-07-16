@@ -91,6 +91,7 @@ export default function NavBar({ editPage = false }) {
       duration: 500,
       smooth: 'easeInQuad',
     });
+<<<<<<< HEAD
   };
 
   const handleLogout = () => {
@@ -101,6 +102,8 @@ export default function NavBar({ editPage = false }) {
       user: null,
     });
     history.push('/login');
+=======
+>>>>>>> 57670d9a8d0aedab8e5f7bbc2a349df8c4357d5e
   };
 
   return (
@@ -114,8 +117,12 @@ export default function NavBar({ editPage = false }) {
               noWrap
               onClick={scrollTop}
             >
+<<<<<<< HEAD
               {editPage ? auth.user.name : profile.user.name}
               {/* {`${profile && profile.user ? profile.user.name : ''}`} */}
+=======
+              {profile.user.name}
+>>>>>>> 57670d9a8d0aedab8e5f7bbc2a349df8c4357d5e
             </Typography>
             {/* Showing logout button on edit page */}
             {editPage ? (

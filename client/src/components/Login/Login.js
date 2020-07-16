@@ -109,14 +109,24 @@ export default function Login() {
 
         setMessage('Logged in successfuly');
         setSeverity('success');
+<<<<<<< HEAD
         showToast();
+=======
+        showToast(); // default message and severity
+
+        setTimeout(() => {}, 1500);
+>>>>>>> 57670d9a8d0aedab8e5f7bbc2a349df8c4357d5e
       }
     })();
   };
 
   // Redirecting incase of authenticated
   if (auth.isAuthenticated) {
+<<<<<<< HEAD
     return <Redirect to='/edit' />;
+=======
+    return <Redirect to='/user' />;
+>>>>>>> 57670d9a8d0aedab8e5f7bbc2a349df8c4357d5e
   }
 
   return (
@@ -217,11 +227,19 @@ export default function Login() {
 
           {/* Dont have and account */}
           <Grid container>
+<<<<<<< HEAD
             <Grid item xs={false} md={2}></Grid>
             <Grid
               item
               xs={12}
               md={8}
+=======
+            <Grid item xs={false} md={3}></Grid>
+            <Grid
+              item
+              xs={12}
+              md={6}
+>>>>>>> 57670d9a8d0aedab8e5f7bbc2a349df8c4357d5e
               className={classes.signInButtonContainer}
               component={Link}
               to='/register'
@@ -230,7 +248,11 @@ export default function Login() {
                 Don't have an account? Create One
               </Grid>
             </Grid>
+<<<<<<< HEAD
             <Grid item xs={false} md={2}></Grid>
+=======
+            <Grid item xs={false} md={3}></Grid>
+>>>>>>> 57670d9a8d0aedab8e5f7bbc2a349df8c4357d5e
           </Grid>
         </Paper>
       </Grid>

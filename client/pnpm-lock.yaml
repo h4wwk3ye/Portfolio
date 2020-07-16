@@ -14,7 +14,6 @@ dependencies:
   react: 16.13.1
   react-anchor-link-smooth-scroll: 1.0.12
   react-dom: 16.13.1_react@16.13.1
-  react-redux: 7.2.0_react-dom@16.13.1+react@16.13.1
   react-router-dom: 5.2.0_react@16.13.1
   react-scripts: 3.4.1
   react-scroll: 1.8.0_react-dom@16.13.1+react@16.13.1
@@ -9537,28 +9536,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-  /react-redux/7.2.0_react-dom@16.13.1+react@16.13.1:
-    dependencies:
-      '@babel/runtime': 7.10.5
-      hoist-non-react-statics: 3.3.2
-      loose-envify: 1.4.0
-      prop-types: 15.7.2
-      react: 16.13.1
-      react-dom: 16.13.1_react@16.13.1
-      react-is: 16.13.1
-    dev: false
-    peerDependencies:
-      react: ^16.8.3
-      react-dom: '*'
-      react-native: '*'
-      redux: ^2.0.0 || ^3.0.0 || ^4.0.0-0
-    peerDependenciesMeta:
-      react-dom:
-        optional: true
-      react-native:
-        optional: true
-    resolution:
-      integrity: sha512-EvCAZYGfOLqwV7gh849xy9/pt55rJXPwmYvI4lilPM5rUT/1NxuuN59ipdBksRVSvz0KInbPnp4IfoXJXCqiDA==
   /react-router-dom/5.2.0_react@16.13.1:
     dependencies:
       '@babel/runtime': 7.10.5
@@ -12050,7 +12027,6 @@ specifiers:
   react: ^16.13.1
   react-anchor-link-smooth-scroll: ^1.0.12
   react-dom: ^16.13.1
-  react-redux: ^7.2.0
   react-router-dom: ^5.2.0
   react-scripts: 3.4.1
   react-scroll: ^1.7.16

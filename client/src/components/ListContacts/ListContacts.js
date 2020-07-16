@@ -105,8 +105,6 @@ export default function ListContacts({ visible }) {
               {/* Email */}
               <Grid
                 item
-                container
-                direction='column'
                 xs={6}
                 key={uuid()}
                 className={classes.singleContactContainer}
@@ -116,15 +114,17 @@ export default function ListContacts({ visible }) {
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                <Grid item xs={12} className={classes.contactIconContainer}>
-                  <img
-                    src={`/images/contact/email.svg`}
-                    alt='email'
-                    className={classes.contactIcon}
-                  />
-                </Grid>
-                <Grid item xs={12} className={classes.contactName}>
-                  Email
+                <Grid container direction='column'>
+                  <Grid item xs={12} className={classes.contactIconContainer}>
+                    <img
+                      src={`/images/contact/email.svg`}
+                      alt='email'
+                      className={classes.contactIcon}
+                    />
+                  </Grid>
+                  <Grid item xs={12} className={classes.contactName}>
+                    Email
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>

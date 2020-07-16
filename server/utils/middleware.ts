@@ -10,6 +10,7 @@ export const requestLogger = (
   console.log('Method:', request.method);
   console.log('Path:  ', request.path);
   console.log('Body:  ', request.body);
+
   const endTime = new Date();
   console.log(
     '\n/*** Request Completed in',

@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import red from '@material-ui/core/colors/red';
 
 const useStyles = makeStyles(theme => ({
   toolbarMargin: {
@@ -13,6 +14,7 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     top: '50%',
     transform: 'translateY(-40%)',
+    cursor: 'pointer',
   },
   tabContainer: {
     marginLeft: 'auto',
@@ -67,6 +69,19 @@ const useStyles = makeStyles(theme => ({
   drawerTabSelected: {
     opacity: 1,
     backgroundColor: 'transparent !important',
+  },
+  logOutButton: {
+    fontSize: '1.3em',
+    color: '#fff',
+    marginLeft: 'auto',
+    textTransform: 'none',
+    backgroundColor: red[500],
+    '&:hover': {
+      backgroundColor: red[500],
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1em',
+    },
   },
 }));
 

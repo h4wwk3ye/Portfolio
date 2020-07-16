@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   },
   // ****
   locationContainer: {
-    marginTop: '4em',
+    marginTop: '1em',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'flex-end',

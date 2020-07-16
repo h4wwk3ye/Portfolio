@@ -22,7 +22,7 @@ export default function Skills({ visible }) {
     'typescript',
   ]);
 
-  return (
+  return profile.skills.length ? (
     <Grid item container md={4} xs={12}>
       <Grow in={visible} timeout={1000}>
         <Paper
@@ -83,5 +83,5 @@ export default function Skills({ visible }) {
         </Paper>
       </Grow>
     </Grid>
-  );
+  ) : null;
 }

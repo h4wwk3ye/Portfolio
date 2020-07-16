@@ -60,40 +60,47 @@ export default function ListContacts({ visible }) {
               justify='space-around'
               className={classes.allContactsContainer}
             >
-              {Object.entries(profile.connect).map(service => (
-                <Grid
-                  item
-                  container
-                  direction='column'
-                  xs={6}
-                  key={uuid()}
-                  className={classes.singleContactContainer}
-                  // Link Part
-                  component={Link}
-                  href={`${service[1]}`}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  <Grid item xs={12} className={classes.contactIconContainer}>
-                    {setOfContacts.has(service[0].toLowerCase()) ? (
-                      <img
-                        src={`/images/contact/${service[0].toLowerCase()}.svg`}
-                        alt={service[0]}
-                        className={classes.contactIcon}
-                      />
-                    ) : (
-                      <img
-                        src={`/images/contact/defaultcontact.svg`}
-                        alt={service[0]}
-                        className={classes.contactIcon}
-                      />
-                    )}
-                  </Grid>
-                  <Grid item xs={12} className={classes.contactName}>
-                    {capitalizeFirstLetter(service[0])}
-                  </Grid>
-                </Grid>
-              ))}
+              {Object.entries(profile.connect).map(
+                service =>
+                  service[1] !== '' && (
+                    <Grid
+                      item
+                      container
+                      direction='column'
+                      xs={6}
+                      key={uuid()}
+                      className={classes.singleContactContainer}
+                      // Link Part
+                      component={Link}
+                      href={`${service[1]}`}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      <Grid
+                        item
+                        xs={12}
+                        className={classes.contactIconContainer}
+                      >
+                        {setOfContacts.has(service[0].toLowerCase()) ? (
+                          <img
+                            src={`/images/contact/${service[0].toLowerCase()}.svg`}
+                            alt={service[0]}
+                            className={classes.contactIcon}
+                          />
+                        ) : (
+                          <img
+                            src={`/images/contact/defaultcontact.svg`}
+                            alt={service[0]}
+                            className={classes.contactIcon}
+                          />
+                        )}
+                      </Grid>
+                      <Grid item xs={12} className={classes.contactName}>
+                        {capitalizeFirstLetter(service[0])}
+                      </Grid>
+                    </Grid>
+                  )
+              )}
 
               {/* Email */}
               <Grid

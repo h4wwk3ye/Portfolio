@@ -37,7 +37,7 @@ userRouter.post(
     if (user) {
       return response
         .status(400)
-        .json({ errors: [{ msg: 'User already exists' }] });
+        .json({ errors: [{ msg: 'User already exists', param: 'email' }] });
     }
 
     // Hashing the password
@@ -54,10 +54,7 @@ userRouter.post(
     // creating jwt tokem
     const token = jwt.sign(
       { user: { id: <string>user.id } },
-      config.get('secret'),
-      {
-        expiresIn: 50000,
-      }
+      config.get('secret')
     );
 
     return response.json({ token });

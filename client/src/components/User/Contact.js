@@ -49,11 +49,11 @@ export default function Contacts() {
         {matches && <Grid item md={4}></Grid>}
         <Grid item xs={12} className={classes.emptyGrid}></Grid>
 
+        {/* <ListContacts visible={visible} /> */}
+
         <VisibilitySensor
           onChange={isVisible => {
-            if (!visible)
-              // this condition so we dont show the animation again
-              setVisible(isVisible);
+            if (!visible) setVisible(isVisible);
           }}
           partialVisibility
           active={!visible}

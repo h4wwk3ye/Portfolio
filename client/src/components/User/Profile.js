@@ -57,11 +57,9 @@ export default function Profile() {
 
         <Grid item xs={12} className={classes.emptyGrid}></Grid>
 
-        {/* Education */}
         <VisibilitySensor
           onChange={isVisible => {
             if (!visible.education)
-              // this condition so we dont show the animation again
               setVisible({ ...visible, education: isVisible });
           }}
           partialVisibility
@@ -70,7 +68,6 @@ export default function Profile() {
           <Education visible={visible.education} />
         </VisibilitySensor>
 
-        {/* Experience */}
         <VisibilitySensor
           onChange={isVisible => {
             if (!visible.experience)
@@ -85,7 +82,6 @@ export default function Profile() {
           <Experience visible={visible.experience} />
         </VisibilitySensor>
 
-        {/* Skills */}
         <VisibilitySensor
           onChange={isVisible => {
             if (!visible.skills)

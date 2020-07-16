@@ -6,13 +6,16 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
+  Button,
 } from '@material-ui/core';
-import { Events, scrollSpy } from 'react-scroll';
+import { Events, scrollSpy, animateScroll } from 'react-scroll';
 import useStyles from './NavBarTheme';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useRecoilState } from 'recoil';
 import { profileState } from '../../atoms';
 import Tabs from './Tabs';
 import Drawer from './Drawer';
+import { useHistory } from 'react-router-dom';
+import { authState } from '../../atoms';
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -26,11 +29,13 @@ function ElevationScroll(props) {
   });
 }
 
-export default function NavBar() {
+export default function NavBar({ editPage = false }) {
   const classes = useStyles();
   const profile = useRecoilValue(profileState);
   const theme = useTheme();
   const removeTabs = useMediaQuery(theme.breakpoints.down('md'));
+  const history = useHistory();
+  const [auth, setAuth] = useRecoilState(authState);
 
   // This is for detrmining the active tab
   const [value, setValue] = React.useState(0);
@@ -78,10 +83,24 @@ export default function NavBar() {
       setValue(3);
     } else if (to === 'contact') {
       setValue(4);
-    } else {
-      setValue(0);
     }
-    // console.log(to, 'mid');
+  };
+
+  const scrollTop = () => {
+    animateScroll.scrollToTop({
+      duration: 500,
+      smooth: 'easeInQuad',
+    });
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setAuth({
+      token: localStorage.getItem('token'),
+      isAuthenticated: false,
+      user: null,
+    });
+    history.push('/login');
   };
 
   return (
@@ -89,10 +108,25 @@ export default function NavBar() {
       <ElevationScroll>
         <AppBar position='sticky' className={classes.appBar}>
           <Toolbar>
-            <Typography variant='h4' className={classes.name} noWrap>
-              {profile.user.name}
+            <Typography
+              variant='h4'
+              className={classes.name}
+              noWrap
+              onClick={scrollTop}
+            >
+              {editPage ? auth.user.name : profile.user.name}
+              {/* {`${profile && profile.user ? profile.user.name : ''}`} */}
             </Typography>
-            {!removeTabs ? (
+            {/* Showing logout button on edit page */}
+            {editPage ? (
+              <Button
+                variant='contained'
+                onClick={handleLogout}
+                className={classes.logOutButton}
+              >
+                Log Out
+              </Button>
+            ) : !removeTabs ? (
               <Tabs
                 value={value}
                 handleChange={handleChange}

@@ -52,7 +52,6 @@ export default function AboutMe({ visible }) {
           <Grid container spacing={1} justify='space-around'>
             <Grid
               item
-              md={5}
               xs={12}
               className={classes.locationContainer}
               component={Link}
@@ -84,12 +83,12 @@ export default function AboutMe({ visible }) {
             {profile.loc &&
               profile.loc.city.length &&
               profile.loc.country.length && (
-                <Grid item md={7} xs={12} className={classes.locationContainer}>
+                <Grid item xs={12} className={classes.locationContainer}>
                   <Button
                     disabled
                     startIcon={
                       <img
-                        src='images/location.svg'
+                        src='/images/location.svg'
                         alt='location'
                         className={classes.locationIcon}
                       />

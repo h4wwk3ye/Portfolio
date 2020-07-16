@@ -21,12 +21,6 @@ profileRouter.get(
       user: request.user.id,
     }).populate('user', ['name', 'email']);
 
-    if (!profile) {
-      return response
-        .status(400)
-        .json({ errors: [{ msg: 'There is no profile for current user' }] });
-    }
-
     return response.json(profile);
   }
 );
@@ -52,14 +46,24 @@ profileRouter.post(
       return response.status(400).json({ errors: errors.array() });
     }
 
-    let body: IProfile = request.body as IProfile;
-    body = JSON.parse(JSON.stringify(body)) as IProfile;
-    body = { ...body, user: request.user.id };
-    console.log(body);
+    let body = request.body;
+
+    body = JSON.parse(JSON.stringify(body));
+
+    //Parse each object in the request
+    for (const key of Object.keys(body)) {
+      try {
+        body[key] = JSON.parse(body[key]);
+      } catch (error) {}
+    }
+
+    body = { ...body, user: request.user.id } as IProfile;
 
     if (request.file) body['image'] = request.file.location;
 
-    let profile = await Profile.findOne({ user: request.user.id });
+    let profile = await Profile.findOne({
+      user: request.user.id,
+    });
 
     if (request.file && profile && profile.get('image')) {
       // delete previous image if new image is in the request
@@ -74,7 +78,7 @@ profileRouter.post(
         { user: request.user.id },
         { $set: body },
         { new: true }
-      );
+      ).populate('user', ['name', 'email']);
       return response.json(profile);
     }
 

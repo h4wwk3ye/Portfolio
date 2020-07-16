@@ -1,9 +1,11 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import { profileState } from '../../atoms';
-import { getProfile } from '../../services/profileService';
+import getProfileFromURL from '../../services/getProfileFromURL';
+import getCurrentUserProfile from '../../services/getCurrentUserProfile';
 
 import { Events, scrollSpy } from 'react-scroll';
+import { useRouteMatch, useHistory } from 'react-router-dom';
 
 import NavBar from '../NavBar/NavBar';
 import Home from './Home';
@@ -16,11 +18,21 @@ import Footer from '../Footer/Footer';
 
 export default function User() {
   const [profile, setProfile] = useRecoilState(profileState);
+  const authenticatedURL = useRouteMatch('/profile/me');
+  const history = useHistory();
+  const match = useRouteMatch('/user/:id'); // if using the unathenticated route
 
   React.useEffect(() => {
     (async () => {
-      const profileData = await getProfile();
-      setProfile(profileData);
+      try {
+        const profileData = authenticatedURL
+          ? await getCurrentUserProfile()
+          : await getProfileFromURL(match.params.id);
+
+        setProfile(profileData);
+      } catch (error) {
+        history.push('/');
+      }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

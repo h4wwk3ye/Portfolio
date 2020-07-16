@@ -10,7 +10,7 @@ export default function CodingImage({ visible }) {
   const [hovered, setHovered] = React.useState(false);
   const toggleHover = () => setHovered(!hovered);
 
-  return profile.image ? (
+  return profile.image && profile.image !== '' ? (
     <Grid item container xs={12} md={6}>
       <Grow in={visible} timeout={1000}>
         <Paper

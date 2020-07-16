@@ -1,9 +1,18 @@
 import React from 'react';
 import FooterTheme from './FooterTheme';
 import './footerAnimation.css';
+import { Link, useRouteMatch } from 'react-router-dom';
+import { Link as MuiLink } from '@material-ui/core';
+
+import { useRecoilValue } from 'recoil';
+import { authState } from '../../atoms';
 
 export default function Footer() {
   const classes = FooterTheme();
+  const auth = useRecoilValue(authState);
+  const onEditPage = useRouteMatch('/edit');
+  const onProfilePage = useRouteMatch('/profile/me');
+
   return (
     <footer>
       <svg viewBox='0 0 120 28'>
@@ -43,12 +52,40 @@ export default function Footer() {
         </g>
       </svg>
 
-      <div className={classes.text}>
-        Made with{' '}
-        <span role='img' aria-label='heart'>
-          ❤️{' '}
-        </span>
-        by Farhan Tahir
+      <div>
+        <div className={classes.text}>
+          {' '}
+          Made with{' '}
+          <span role='img' aria-label='heart'>
+            ❤️{' '}
+          </span>
+          by
+          <MuiLink
+            href={`/user/5f094c1b29af5103a73a0c35`} // my id
+            target='_blank'
+            rel='noopener noreferrer'
+            className={classes.link}
+          >
+            {' Farhan Tahir'}
+          </MuiLink>
+        </div>
+
+        {onEditPage ? (
+          <MuiLink
+            href={`/user/${auth.user._id}`}
+            target='_blank'
+            rel='noopener noreferrer'
+            className={classes.link}
+          >
+            © Share your global profile link with others
+          </MuiLink>
+        ) : (
+          <Link to='/' className={classes.link}>
+            {!onProfilePage
+              ? '© Create one for yourself'
+              : '© Edit your profile'}
+          </Link>
+        )}
       </div>
     </footer>
   );

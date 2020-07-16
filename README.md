@@ -1,6 +1,6 @@
 # Portfolio Builder
 
-Portfolio Builder is MERN stack project weher a user can create their account and then create or update their profile. They can also share the public link of their profile with others.
+Portfolio Builder is MERN stack project where a user can create their account and then create or update their profile. They can also share the public link of their profile with others.
 
 The backend is written with NodeJS completely in typescript with strict type checking.
 THe frontend is written in React and uses Maaterial UI as the UI framework.

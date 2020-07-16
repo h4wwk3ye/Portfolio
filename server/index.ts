@@ -7,6 +7,7 @@ import {
   errorHandler,
 } from './utils/middleware';
 import connectDB from './mongo';
+import path from 'path';
 
 import users from './controllers/users';
 import auth from './controllers/auth';
@@ -28,6 +29,17 @@ app.use(requestLogger); //logs every request to the console
 app.use('/api/users', users);
 app.use('/api/auth', auth);
 app.use('/api/profile', profile);
+
+// serving static files
+console.log();
+
+app.use(express.static(path.resolve(__dirname, '..', 'client', 'build')));
+
+app.get('*', (_request, response) => {
+  response.sendFile(
+    path.resolve(__dirname, '..', 'client', 'build', 'index.html')
+  );
+});
 
 // Unknown endpoint
 app.use(unknownEndpoint);

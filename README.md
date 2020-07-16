@@ -9,7 +9,7 @@ Images are uplaoaded to AWS S3 and the project is deployed on Amazon EC2.
 
 ## Installation
 
-Clone the repository and then on the servier and client folder separately do
+Clone the repository and then on the server and client folder separately do
 
 ```bash
 npm install

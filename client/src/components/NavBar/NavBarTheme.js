@@ -21,14 +21,14 @@ const useStyles = makeStyles(theme => ({
   },
   tab: {
     ...theme.typography.tab,
-    minWidth: 10,
+    minWidth: '10px !important',
     marginLeft: 25,
-    opacity: 0.5,
+    opacity: '0.5 !important',
     '&:hover': {
       opacity: 1,
       transform: 'scale(1.3)',
     },
-    textTransform: 'none',
+    textTransform: 'none !important',
   },
   tabSelected: {
     transform: 'scale(1.3)',

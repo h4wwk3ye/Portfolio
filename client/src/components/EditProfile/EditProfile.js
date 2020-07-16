@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Paper, Typography, Button, duration } from '@material-ui/core';
+import { Grid, Paper, Typography, Button } from '@material-ui/core';
 import { Link, useHistory } from 'react-router-dom';
 import EditProfileTheme from './EditProfileTheme';
 

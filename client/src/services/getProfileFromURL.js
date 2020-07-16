@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useRouteMatch } from 'react-router-dom';
 
 const getProfile = async id => {
   console.log(id);

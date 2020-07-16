@@ -14,7 +14,7 @@ import profile from './controllers/profile';
 
 const app = express();
 // connect to DB
-void connectDB();
+connectDB();
 
 const PORT = process.env.PORT || 3001;
 

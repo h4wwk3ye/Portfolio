@@ -165,7 +165,7 @@ export default function EditProfile() {
                 )}
               </Grid>
               {!newProfile && (
-                <Grid container>
+                <Grid container className={classes.profileVisitContainer}>
                   <Grid item xs={false} sm={4}></Grid>
                   <Grid item xs={12} sm={4}>
                     <Button

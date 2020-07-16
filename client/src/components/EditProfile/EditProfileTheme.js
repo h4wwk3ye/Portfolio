@@ -107,6 +107,9 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: theme.palette.additional.blue,
     },
   },
+  profileVisitContainer: {
+    marginBottom: '1em',
+  },
 }));
 
 export default useStyles;

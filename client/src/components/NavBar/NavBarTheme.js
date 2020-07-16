@@ -24,11 +24,11 @@ const useStyles = makeStyles(theme => ({
     minWidth: 10,
     marginLeft: 25,
     opacity: 0.5,
-    width: '6em',
     '&:hover': {
       opacity: 1,
       transform: 'scale(1.3)',
     },
+    textTransform: 'none',
   },
   tabSelected: {
     transform: 'scale(1.3)',

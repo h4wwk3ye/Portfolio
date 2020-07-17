@@ -14,6 +14,7 @@ dependencies:
   react: 16.13.1
   react-anchor-link-smooth-scroll: 1.0.12
   react-dom: 16.13.1_react@16.13.1
+  react-ga: 3.1.2_prop-types@15.7.2+react@16.13.1
   react-router-dom: 5.2.0_react@16.13.1
   react-scripts: 3.4.1
   react-scroll: 1.8.0_react-dom@16.13.1+react@16.13.1
@@ -9532,6 +9533,16 @@ packages:
     dev: false
     resolution:
       integrity: sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
+  /react-ga/3.1.2_prop-types@15.7.2+react@16.13.1:
+    dependencies:
+      prop-types: 15.7.2
+      react: 16.13.1
+    dev: false
+    peerDependencies:
+      prop-types: ^15.6.0
+      react: ^15.6.2 || ^16.0
+    resolution:
+      integrity: sha512-OJrMqaHEHbodm+XsnjA6ISBEHTwvpFrxco65mctzl/v3CASMSLSyUkFqz9yYrPDKGBUfNQzKCjuMJwctjlWBbw==
   /react-is/16.13.1:
     dev: false
     resolution:
@@ -12027,6 +12038,7 @@ specifiers:
   react: ^16.13.1
   react-anchor-link-smooth-scroll: ^1.0.12
   react-dom: ^16.13.1
+  react-ga: ^3.1.2
   react-router-dom: ^5.2.0
   react-scripts: 3.4.1
   react-scroll: ^1.7.16

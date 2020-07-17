@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import ReactGA from 'react-ga';
 import User from './components/User/User';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
@@ -11,6 +12,9 @@ import { useRecoilState } from 'recoil';
 import { authState } from './atoms';
 import setAuthToken from './utils/setAuthToken';
 import getUserFromToken from './services/getUserFromToken';
+
+ReactGA.initialize('UA-172930718-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 export default function App() {
   const [auth, setAuth] = useRecoilState(authState);

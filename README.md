@@ -12,12 +12,13 @@ Portfolio Builder is MERN stack project where a user can create their account an
 ## Link
 
 The site is deployed on ec2.
+Visite at
 
 ### [farhantahir.me](http://farhantahir.me/)
 
-or
-
 ### [farhantahir.codes](http://farhantahir.codes)
+
+### [farhantahir.tech](http://farhantahir.tech)
 
 ###### [My profile Link](http://farhantahir.me/user/5f0fd9fba7ca5012d31a5a1e)
 

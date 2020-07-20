@@ -48,6 +48,16 @@ In the client folder
 npm start
 ```
 
+## Screenshots
+
+![Register Page](https://raw.githubusercontent.com/h4wwk3ye/Portfolio/master/client/public/images/Screens/registerPage.png)
+
+![Profile Page](https://raw.githubusercontent.com/h4wwk3ye/Portfolio/master/client/public/images/Screens/profilePage.png)
+
+![Login Page](https://raw.githubusercontent.com/h4wwk3ye/Portfolio/master/client/public/images/Screens/loginPage.png)
+
+![Edit Page](https://raw.githubusercontent.com/h4wwk3ye/Portfolio/master/client/public/images/Screens/editPage.png)
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

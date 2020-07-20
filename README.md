@@ -4,11 +4,10 @@
 
 Portfolio Builder is MERN stack project where a user can create their account and then create or update their profile. They can also share the public link of their profile with others.
 
-- The backend is written with NodeJS completely in typescript with strict type checking.
-- The frontend is written in React and uses Material UI as the UI framework.
-
-- Images are uploaded to AWS S3 and the project is deployed on Amazon EC2.
-- Global react state management is done using RecoilJS, latest react state management library by facebook.
+- The backend is written with NodeJS completely in **Typescript** with strict type checking.
+- The frontend is written in React and uses **Material UI** as the UI framework.
+- Images are uploaded to **AWS S3** and the project is deployed on **Amazon EC2**.
+- Global react state management is done using **RecoilJS**, latest react state management library by facebook.
 
 ## Link
 

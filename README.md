@@ -9,7 +9,7 @@ Portfolio Builder is MERN stack project where a user can create their account an
 - Images are uploaded to **AWS S3** and the project is deployed on **Amazon EC2**.
 - Global react state management is done using **RecoilJS**, latest react state management library by facebook.
 
-## Link
+## Links
 
 The site is deployed on ec2.
 Visit at
